@@ -29,14 +29,12 @@ const FormSchema = z.object({
   category: z.string(),
 });
 
-export default function FindProduct() {
+export default function FindProduct({submit}:any) {
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
   });
 
-  async function onSubmit(data: z.infer<typeof FormSchema>) {
-    console.log(data);
-  }
+  
 
   const company = ["AMZ", "FLP", "SNP", "MYN", "AZO"];
   const category = ["Phone", "Computer", "TV", "Earphone"];
@@ -44,7 +42,7 @@ export default function FindProduct() {
   return (
     <Form {...form}>
       <form
-        onSubmit={form.handleSubmit(onSubmit)}
+        onSubmit={form.handleSubmit(submit)}
         className="w-full flex justify-center gap-5 items-center"
       >
         <FormField
