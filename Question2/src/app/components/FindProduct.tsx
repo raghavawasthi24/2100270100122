@@ -36,8 +36,6 @@ export default function FindProduct() {
 
   async function onSubmit(data: z.infer<typeof FormSchema>) {
     console.log(data);
-  
-    fetch
   }
 
   const company = ["AMZ", "FLP", "SNP", "MYN", "AZO"];
@@ -45,12 +43,15 @@ export default function FindProduct() {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="w-full flex ">
+      <form
+        onSubmit={form.handleSubmit(onSubmit)}
+        className="w-full flex justify-center gap-5 items-center"
+      >
         <FormField
           control={form.control}
           name="company"
           render={({ field }) => (
-            <FormItem>
+            <FormItem className="w-[10rem]">
               <FormLabel>Company</FormLabel>
               <Select onValueChange={field.onChange} defaultValue={field.value}>
                 <FormControl>
@@ -75,7 +76,7 @@ export default function FindProduct() {
           control={form.control}
           name="category"
           render={({ field }) => (
-            <FormItem>
+            <FormItem className="w-[10rem]">
               <FormLabel>Category</FormLabel>
               <Select onValueChange={field.onChange} defaultValue={field.value}>
                 <FormControl>

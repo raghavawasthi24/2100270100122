@@ -45,10 +45,14 @@ export default function Page() {
     },
   ];
   return (
-    <div>
+    <div className="m-5 flex flex-col gap-5">
       <FindProduct />
-      <Filter />
-      <DataTable data={data} columns={columns} />
+      {data.length > 0 && (
+        <div className="flex flex-col gap-5">
+          <Filter />
+          <DataTable data={data} columns={columns} />
+        </div>
+      )}
       {/* <DataTablePagination /> */}
     </div>
   );
