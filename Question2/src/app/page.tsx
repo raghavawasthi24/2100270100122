@@ -1,7 +1,10 @@
 import React from 'react'
+import FindProduct from './components/FindProduct'
 
-export default function page() {
+export default function Page() {
   return (
-    <div>page</div>
+    <div>
+       <FindProduct />
+    </div>
   )
 }
